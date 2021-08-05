@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  #项目名指定为shiro
+  servlet:
+    context-path: /shiro
+spring:
+  application:
+    name: shiro
+
+  #视图变成  / 与jsp
+  mvc:
+    view:
+      prefix: /
+      suffix: .jsp
