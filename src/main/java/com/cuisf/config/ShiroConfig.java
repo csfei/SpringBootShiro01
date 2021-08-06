@@ -1,6 +1,7 @@
 package com.cuisf.config;
 
 import com.cuisf.shiro.realm.CustomerRealm;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -28,8 +29,10 @@ public class ShiroConfig {
         //配置系统公共资源
         Map<String, String> map = new HashMap<String, String>();
         map.put("user/login","anon"); //公共资源放在受限资源的上面
+          map.put("user/register","anon"); //公共资源放在受限资源的上面
+        map.put("register.jsp","anon"); //公共资源放在受限资源的上面
 
-        map.put("/**","authc"); //authc  请求的资源需要认证和授权
+        map.put("/index.jsp","authc"); //authc  请求的资源需要认证和授权
         shiroFilterFactoryBean.setFilterChainDefinitionMap(map);
 
         //默认认证界面路径
@@ -53,6 +56,14 @@ public class ShiroConfig {
     @Bean
     public Realm getRealm(){
         CustomerRealm customerRealm = new CustomerRealm();
+        //修改凭证校验器
+        HashedCredentialsMatcher credentialsMatcher = new HashedCredentialsMatcher();
+        //设置加密算法
+        credentialsMatcher.setHashAlgorithmName("MD5");
+        //设置散列次数
+        credentialsMatcher.setHashIterations(1024);
+
+        customerRealm.setCredentialsMatcher(credentialsMatcher);
 
         return customerRealm;
     }

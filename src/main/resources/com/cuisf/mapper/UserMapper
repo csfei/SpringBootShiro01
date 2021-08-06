@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.cuisf.dao.UserDao">
+
+    <insert id="save" parameterType="User" useGeneratedKeys="true" keyProperty="id">
+        insert into user values (#{id},#{username},#{password},#{salt})
+    </insert>
+
+    <select id="findByUserName" parameterType="String" resultType="User">
+            select * from user from username = #{username}
+    </select>
+
+    <resultMap id="userMap" type="User">
+        <id column="uid" property="id"/>
+        <result column="username" property="username"/>
+        <!--角色信息-->
+        <collection property="roles" javaType="list" ofType="Role">
+            <id column="id" property="id"/>
+            <result column="rname" property="name"/>
+        </collection>
+    </resultMap>
+
+    <select id="findRolesByUsername" parameterType="String" resultMap="userMap">
+        select u.id uid,u.username,r.id rid,r.name cursor_name
+        from user u
+        left  join user_role ur
+        on uid = ur.userid
+        left join role r
+        on ur.roleid = rid
+        where u.username = #{username}
+    </select>
+
+    <select id="findPermsByRoleId" parameterType="String" resultType="list">
+        select p.id pid,p.name pname,p.url,r.name rname
+        from role r
+        left join role_perms rp
+        on rid = rp.roleid
+        left join perms
+        on rp.permsid = pid
+        where rid = #{id}
+    </select>
+
+</mapper>

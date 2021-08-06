@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -19,9 +20,21 @@
         <a href="${pageContext.request.contextPath}/user/logout">退出</a>
 
         <ul>
-            <li> <a href="">订单模块</a></li>
-            <li> <a href="">商品模块</a></li>
-            <li> <a href="">用户模块</a></li>
+            <shiro:hasRole name="admin">
+                <li> <a href="">订单模块</a></li>
+                <li> <a href="">商品模块</a></li>
+            </shiro:hasRole>
+            <shiro:hasAnyRoles name="user,admin">
+                <li> <a href="">用户模块</a>
+                <ul>
+                    <shiro:hasPermission name="user:update:*">
+                        <li><a href="">修改</a></li>
+                    </shiro:hasPermission>
+                        <li><a href="">删除</a></li>
+                        <li><a href="">添加</a></li>
+                    </ul>
+                </li>
+            </shiro:hasAnyRoles>
         </ul>
 
 

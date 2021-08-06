@@ -1,0 +1,9 @@
+com\cuisf\shiro\realm\CustomerRealm.class
+com\cuisf\service\UserService.class
+com\cuisf\utils\SaltUtils.class
+com\cuisf\controller\UserController.class
+com\cuisf\dao\UserDao.class
+com\cuisf\config\ShiroConfig.class
+com\cuisf\service\UserServiceImpl.class
+com\cuisf\SpringbootShiro01Application.class
+com\cuisf\entity\User.class

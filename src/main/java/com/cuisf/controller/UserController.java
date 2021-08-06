@@ -1,11 +1,14 @@
 package com.cuisf.controller;
 
+import com.cuisf.entity.User;
+import com.cuisf.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -14,6 +17,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class UserController {
 
 
+    @Autowired
+    UserService userService;
+
+    @RequestMapping("register")
+    public String register(User user){
+
+
+        try {
+            userService.register(user);
+            return "redirect:/login.jsp";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/register.jsp";
+        }
+    }
+
+
+    /**
+     * 退出
+     * @return
+     */
     @RequestMapping("logout")
     public String logout(){
 
