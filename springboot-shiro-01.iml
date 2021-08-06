@@ -104,8 +104,6 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring-boot-starter:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-spring:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.5.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-lang:1.5.3" level="project" />
-    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-cache:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-crypto-hash:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-crypto-core:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-crypto-cipher:1.5.3" level="project" />
@@ -117,5 +115,24 @@
     <orderEntry type="library" name="Maven: org.apache.shiro:shiro-web:1.5.3" level="project" />
     <orderEntry type="library" name="Maven: org.owasp.encoder:encoder:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:druid:1.1.24" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-ehcache:1.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-cache:1.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-lang:1.5.3" level="project" />
+    <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache-core:2.6.11" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-redis:2.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-redis:2.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-keyvalue:2.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.5.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-oxm:5.3.9" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-context-support:5.3.9" level="project" />
+    <orderEntry type="library" name="Maven: io.lettuce:lettuce-core:6.1.4.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-common:4.1.66.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-handler:4.1.66.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-resolver:4.1.66.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-buffer:4.1.66.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-codec:4.1.66.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.netty:netty-transport:4.1.66.Final" level="project" />
+    <orderEntry type="library" name="Maven: io.projectreactor:reactor-core:3.4.8" level="project" />
+    <orderEntry type="library" name="Maven: org.reactivestreams:reactive-streams:1.0.3" level="project" />
   </component>
 </module>

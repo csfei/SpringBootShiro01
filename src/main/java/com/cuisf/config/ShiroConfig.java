@@ -2,6 +2,7 @@ package com.cuisf.config;
 
 import com.cuisf.shiro.realm.CustomerRealm;
 import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
+import org.apache.shiro.cache.ehcache.EhCacheManager;
 import org.apache.shiro.realm.Realm;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -29,7 +30,7 @@ public class ShiroConfig {
         //配置系统公共资源
         Map<String, String> map = new HashMap<String, String>();
         map.put("user/login","anon"); //公共资源放在受限资源的上面
-          map.put("user/register","anon"); //公共资源放在受限资源的上面
+        map.put("user/register","anon"); //公共资源放在受限资源的上面
         map.put("register.jsp","anon"); //公共资源放在受限资源的上面
 
         map.put("/index.jsp","authc"); //authc  请求的资源需要认证和授权
@@ -64,6 +65,14 @@ public class ShiroConfig {
         credentialsMatcher.setHashIterations(1024);
 
         customerRealm.setCredentialsMatcher(credentialsMatcher);
+
+        //开启缓存管理
+        customerRealm.setCacheManager(new EhCacheManager());
+        customerRealm.setCachingEnabled(true);//开启全局缓存
+        customerRealm.setAuthenticationCachingEnabled(true);//开启认证缓存
+        customerRealm.setAuthenticationCacheName("authenticationCache");
+        customerRealm.setAuthorizationCachingEnabled(true);//开启授权缓存
+        customerRealm.setAuthorizationCacheName("authorizationCache");
 
         return customerRealm;
     }
